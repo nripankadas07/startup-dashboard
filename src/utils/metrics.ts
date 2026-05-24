@@ -133,7 +133,8 @@ export function formatCurrency(value: number): string {
 
 /** Format a percentage. */
 export function formatPercent(value: number): string {
-  return `${value.toFixed(1)}%`;
+  const rounded = Math.round((value + Number.EPSILON) * 10) / 10;
+  return `${rounded.toFixed(1)}%`;
 }
 
 /** Format a ratio. */
