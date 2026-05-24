@@ -11,7 +11,8 @@
     "start": "next start",
     "lint": "eslint .",
     "test": "jest --passWithNoTests",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "typecheck": "npm run type-check"
   },
   "dependencies": {
     "date-fns": "^3.6.0",
