@@ -1,7 +1,7 @@
 /**
  * MRR + ARR area chart.
  *
- * The hero chart of any SaaS dashboard â shows monthly recurring
+ * The hero chart of any SaaS dashboard - shows monthly recurring
  * revenue growth over time with an area fill for visual impact.
  */
 

@@ -35,7 +35,7 @@ export interface DerivedMetrics {
   cac: number;
   /** Customer Lifetime Value */
   ltv: number;
-  /** LTV:CAC ratio — healthy is > 3 */
+  /** LTV:CAC ratio - healthy is > 3 */
   ltvCacRatio: number;
   /** Month-over-month MRR growth (%) */
   mrrGrowth: number;

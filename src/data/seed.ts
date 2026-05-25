@@ -1,7 +1,7 @@
 /**
  * Seed data generator for the dashboard demo.
  *
- * Simulates 24 months of realistic SaaS growth â starting small,
+ * Simulates 24 months of realistic SaaS growth - starting small,
  * with natural variance in acquisition, churn, and spend. The
  * numbers follow a plausible early-stage trajectory: quick initial
  * growth that gradually stabilises.

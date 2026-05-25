@@ -3,7 +3,7 @@
  *
  * Pure functions that derive business-critical KPIs from raw
  * monthly data. Every formula here is standard SaaS metrics
- * methodology â the kind a Series A investor would expect.
+ * methodology - the kind a Series A investor would expect.
  */
 
 import {

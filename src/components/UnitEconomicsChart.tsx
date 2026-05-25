@@ -1,7 +1,7 @@
 /**
  * Unit economics bar chart.
  *
- * Shows CAC vs LTV side by side â the metrics that tell you
+ * Shows CAC vs LTV side by side - the metrics that tell you
  * whether your growth engine is sustainable. A healthy business
  * has LTV significantly exceeding CAC (ideally 3x+).
  */

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Startup Dashboard â SaaS Metrics",
+  title: "Startup Dashboard - SaaS Metrics",
   description:
     "Track MRR, churn, LTV, CAC, and customer growth for your startup.",
 };

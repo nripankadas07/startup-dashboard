@@ -1,7 +1,7 @@
 /**
  * Dashboard state hook.
  *
- * Manages the full data pipeline: seed â enrich â filter â KPIs.
+ * Manages the full data pipeline: seed -> enrich -> filter -> KPIs.
  * React components consume this hook and get everything they need.
  */
 

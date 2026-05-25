@@ -16,7 +16,7 @@ import {
 } from "../metrics";
 import { MonthlyMetrics, DashboardRow } from "../../data/types";
 
-// ââ Fixtures ââââââââââââââââââââââââââââââââââââââââââââââ
+// Fixtures
 
 const baseMonth: MonthlyMetrics = {
   month: "2024-06",
@@ -40,7 +40,7 @@ const previousMonth: MonthlyMetrics = {
   arpu: 100,
 };
 
-// ââ computeDerived ââââââââââââââââââââââââââââââââââââââââ
+// computeDerived
 
 describe("computeDerived", () => {
   it("computes churn rate from previous customers", () => {
@@ -90,7 +90,7 @@ describe("computeDerived", () => {
   });
 });
 
-// ââ enrichData ââââââââââââââââââââââââââââââââââââââââââââ
+// enrichData
 
 describe("enrichData", () => {
   it("returns same length as input", () => {
@@ -109,7 +109,7 @@ describe("enrichData", () => {
   });
 });
 
-// ââ filterByRange âââââââââââââââââââââââââââââââââââââââââ
+// filterByRange
 
 describe("filterByRange", () => {
   const rows: DashboardRow[] = Array.from({ length: 12 }, (_, i) => ({
@@ -131,7 +131,7 @@ describe("filterByRange", () => {
   });
 });
 
-// ââ computeKPIs âââââââââââââââââââââââââââââââââââââââââââ
+// computeKPIs
 
 describe("computeKPIs", () => {
   const rows: DashboardRow[] = Array.from({ length: 6 }, (_, i) => ({
@@ -157,7 +157,7 @@ describe("computeKPIs", () => {
   });
 });
 
-// ââ formatters ââââââââââââââââââââââââââââââââââââââââââââ
+// formatters
 
 describe("formatters", () => {
   it("formats currency with K suffix", () => {

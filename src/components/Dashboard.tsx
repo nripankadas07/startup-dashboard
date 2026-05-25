@@ -32,7 +32,7 @@ export default function Dashboard() {
         <div>
           <h1 style={styles.h1}>Startup Dashboard</h1>
           <p style={styles.subtitle}>
-            SaaS metrics at a glance â MRR, churn, unit economics, and growth
+            SaaS metrics at a glance - MRR, churn, unit economics, and growth
           </p>
         </div>
         <TimeRangeSelector value={range} onChange={setRange} />
@@ -77,7 +77,7 @@ export default function Dashboard() {
         />
       </div>
 
-      {/* Charts â 2-column grid */}
+      {/* Charts - 2-column grid */}
       <div style={styles.chartGrid}>
         <MRRChart data={data} />
         <ChurnChart data={data} />
