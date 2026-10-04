@@ -28,6 +28,12 @@ jobs:
           else
             npm install
           fi
+      - name: Dependency audit
+        run: npm audit --ignore-scripts
+      - name: Lint glob regression
+        run: node --test lint-glob.test.mjs
+      - name: Lint
+        run: npm run lint
       - name: Build
         run: npm run build --if-present
       - name: Typecheck
