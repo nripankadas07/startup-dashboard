@@ -12,7 +12,8 @@
     "lint": "eslint .",
     "test": "jest --passWithNoTests",
     "type-check": "tsc --noEmit",
-    "typecheck": "npm run type-check"
+    "typecheck": "npm run type-check",
+    "pretest": "node --test dependency-audit.test.mjs"
   },
   "dependencies": {
     "date-fns": "^3.6.0",
@@ -38,6 +39,9 @@
     "postcss": "8.5.23",
     "@next/eslint-plugin-next": {
       "fast-glob": "file:next-root-glob-1.0.0.tgz"
+    },
+    "js-yaml": {
+      "argparse": "2.0.1"
     }
   }
 }
