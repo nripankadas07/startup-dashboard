@@ -46,3 +46,19 @@ test('section offsets above the supported bound are rejected', async () => {
   const {SourceMapConsumer} = await import('source-map-js');
   assert.throws(() => new SourceMapConsumer({version:3,sections:[{offset:{line:10000001,column:0},map:{version:3,sources:[],names:[],mappings:''}}]}), /Section offset line must not exceed 10000000/);
 });
+
+// Regression cases for GHSA-8r5x-fm3f-whwj and GHSA-p8wg-vrv2-v86f.
+// See upstream advisories; these fixtures do not execute injected commands.
+test('Handlebars rejects a Program with non-array block parameters', () => {
+  const h = createRequire(import.meta.url)('handlebars');
+  const ast = h.parse('{{#if ok}}hello{{/if}}');
+  ast.body[0].program.blockParams = {length: '0'};
+  assert.throws(() => h.precompile(ast), /blockParams|array|Array/);
+  assert.equal(h.compile('{{#if ok}}hello {{name}}{{/if}}')({ok:true,name:'reader'}), 'hello reader');
+});
+test('Handlebars prevents prototype constructor lookup while preserving plain data', () => {
+  const h = createRequire(import.meta.url)('handlebars');
+  h.registerHelper('inspect', (value, options) => options.lookupProperty(value, 'constructor') === Function ? 'exposed' : 'blocked');
+  assert.equal(h.compile('{{inspect target}}')({target:Function.prototype}, {allowProtoMethodsByDefault:true}), 'blocked');
+  assert.equal(h.compile('{{constructor.name}}')({constructor:{name:'ordinary'}}), 'ordinary');
+});
