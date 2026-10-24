@@ -6,6 +6,17 @@ import path from 'node:path';
 import cp from 'node:child_process';
 import {createRequire} from 'node:module';
 const resolve = createRequire(import.meta.url).resolve;
+test('bounded Zod arrays reject excess input before walking elements (GHSA-mrhx-c7xc-m3w5)', async () => {
+  const { z } = await import('zod');
+  let visits = 0;
+  const schema = z.array(z.string().superRefine(() => { visits += 1; })).max(3);
+  const rejected = schema.safeParse(['a', 'b', 'c', 'd', 'e']);
+  assert.equal(rejected.success, false);
+  assert.equal(visits, 0);
+  assert.deepEqual(rejected.error.issues.map(issue => issue.code), ['too_big']);
+  assert.deepEqual(schema.parse(['a', 'b']), ['a', 'b']);
+  assert.equal(visits, 2);
+});
 test('the locked dependency graph contains no vulnerable sprintf-js', () => {
   const lock = JSON.parse(fs.readFileSync('package-lock.json', 'utf8'));
   assert.deepEqual(Object.keys(lock.packages).filter(p => p.endsWith('/sprintf-js')), []);
